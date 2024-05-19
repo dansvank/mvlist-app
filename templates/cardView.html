@@ -1,0 +1,10 @@
+<div class="media-library">
+    <div class="movie-card">
+        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="movie-poster">
+        <div class="movie-info">
+            <a href="/movie/{{ movie.id }}"><h2 class="movie-title">{{ movie.title_main }}</h2></a>
+            <p class="movie-year">{{ movie.release_year }}</p>
+            <p class="movie-description">{{ movie.plot }}</p>
+        </div>
+    </div>
+</div>

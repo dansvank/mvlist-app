@@ -1,0 +1,20 @@
+<div class="accordion-item">
+  <div class="">
+    <!-- start -->
+    <h2 class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionMovies-{{ movie.id }}" aria-expanded="false" aria-controls="accordionMovies-{{ movie.id }}">
+      <p class="border">
+        <span class="fs-4 fw-bolder border">{{ movie.title_main }}</span>
+        <span class="px-2 fs-6 border">({{ movie.release_year }})</span>
+      </p>
+      <small class="my-0 border">{{ movie.title_original }}</small>
+
+  </div>
+  <div id="accordionMovies-{{ movie.id }}" class="accordion-collapse collapse">
+    <div class="accordion-body">
+      <p><span class="fw-bold">Director</span>{{ movie.director }}</p>
+      <p><span class="fw-bold">Country</span>{{ movie.country }}</p>
+      <p><span class="fw-bold">Genre</span>{{ movie.genre }}</p>
+      <p><span class="fw-bold">Plot</span>{{ movie.plot }}</p>
+    </div>
+  </div>
+</div>  

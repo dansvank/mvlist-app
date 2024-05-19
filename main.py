@@ -1,28 +1,25 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
+from database import loadMovies, showMovie
 
 app = Flask(__name__)
 
-JOBS = [{
-    'id': 1,
-    'title': 'Data Analyst',
-    'location': 'Bengaluru, india',
-    'salary': 'Rs. 10,00,000'
-}, {
-    'id': 2,
-    'title': 'Data Scientist',
-    'location': 'Delhi, india',
-    'salary': 'Rs. 15,00,000',
-}, {
-    'id': 3,
-    'title': 'Middle Ager',
-    'location': 'San Jose, Costa Rica',
-    'salary': 'CRC. 1,000,000',
-}]
+
+#----------API ENDPOINTS---------
+@app.route("/movie/")
+def listMovies():
+  return jsonify(loadMovies())
 
 
+@app.route("/movie/<id>")
+def getMovie(id):
+  m = showMovie(id)
+  return render_template("movie.html", movie=m)
+
+
+#----------HTML ROUTES--------
 @app.route("/")
 def home():
-  return render_template("home.html", jobs=JOBS)
+  return render_template("home.html", movies=loadMovies())
 
 
 if __name__ == "__main__":

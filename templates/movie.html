@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+<!-- <head> -->
+{% block title %}
+  <title>{{ movie.title_main }}</title>
+{% endblock title %}
+<!-- </head> -->
+
+<!-- <body> -->
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="img-fluid">
+        <div class="actions p-2">
+          <button class="btn btn-primary" type="button">↻ Refresh</button>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h1>{{ movie.title_main }}</h1>
+        <p><strong>Original Title:</strong> {{ movie.title_original }}</p>
+        <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
+        <p><strong>Duration:</strong> {{ movie.runtime }}</p>
+        <p><strong>Ratings:</strong> {{ movie.rating_imdb / 10 }}/10, {{ movie.rating_metacritic }}/100, {{ movie.rating_rottentomatoes }}%</p>
+        <p><strong>Plot:</strong> {{ movie.plot }}</p>
+        <p><strong>Top Cast:</strong> {{ movie.top_cast }}</p>
+        <p><strong>Country:</strong> {{ movie.country }}</p>
+        <p><strong>Language:</strong> {{ movie.language_ }}</p>
+        <p><strong>Genres:</strong> {{ movie.genre }}</p>
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p><strong>Production:</strong> {{ movie.production }}</p>
+        <p><strong>Movie Website:</strong> <a href="{{ movie.website }}">Official Website</a></p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+<!-- </body> -->
