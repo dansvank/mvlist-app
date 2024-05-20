@@ -52,9 +52,50 @@ body {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.movie-year, .movie-description {
-    margin: 5px 0 0;
+.movie-year {
     font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+.movie-description {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 7.5em;
+}
+
+.details-layout {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.marginLeft { margin-left: auto; }
+
+.small-text {
+    font-size: 0.8em;
+}
+
+
+.rating {
+    vertical-align: text-top;
+}
+
+.imdb-rating, .rt-rating {
+
+    font-weight: bold;
+}
+
+.denbug{
+    border: 1px solid white;
 }
