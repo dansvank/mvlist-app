@@ -1,16 +1,14 @@
 # This file contents secret keys and private information.
 # Reading this would be a crime.
-
-from sqlalchemy import create_engine, text
 import os
+from sqlalchemy import create_engine, text
+
 
 #OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=os.environ['OMDB_APIKEY']
 
 engine = create_engine(
     os.environ['AVIEN_DB_CONNECTION'],
-    connect_args={"ssl": {
-        "ca": ".certificates/ca.pem"
-    }})
+    connect_args={"ssl": {"ca": ".certificates/ca.pem"}})
 
 #engine = create_engine("postgresql://mvlist_user:mwluHr6FC2Jux9IxRuQGa8eUhSFUMHct@dpg-cp54ot8cmk4c73esodp0-a.oregon-postgres.render.com/mvlist",
 #    isolation_level="REPEATABLE READ")
