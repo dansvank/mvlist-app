@@ -8,7 +8,7 @@ from sqlalchemy import create_engine, text
 
 engine = create_engine(
     os.environ['AVIEN_DB_CONNECTION'],
-    connect_args={"ssl": {"ca": ".certificates/ca.pem"}})
+    connect_args={"ssl": {"ca": "ca.pem"}})
 
 
 def loadMovies():
