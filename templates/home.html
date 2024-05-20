@@ -1,9 +1,12 @@
-{% extends 'layout.html' %}
+{% extends 'main.html' %}
 
 <!-- <head> -->
 {% block title %}
-<title>Daniel's Catalog</title>
+  <title>Dansvank's Home</title>
 {% endblock title %}
+{% block header %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/catalog_styles.css') }}">
+{% endblock header %}
 <!-- </head> -->
 
 <!-- <body> -->
@@ -11,10 +14,11 @@
 <h2>Catalog -</h2>
 <p>Just a database of movies I happened to own.</p>
 <div id="movieList border" class="container" style="margin-bottom:16px; padding-bottom:8px;" >
-  
+    <div class="media-library">
       {% for movie in movies %}
           {% include 'cardView.html' %}
       {% endfor %}
+    </div>
 </div>
 {% endblock content %}
 <!-- </body> -->

@@ -3,6 +3,9 @@ import os, csv
 
 filepath = "movies.csv"
 
+
+# When importing the data, make sure to update the connection string first. 
+# I have changed the environ secret and now I read the ca locally?
 engine = create_engine(
     os.environ['DB_CONNECTION_STRING'],
     connect_args={"ssl": {

@@ -1,24 +1,45 @@
-{% extends 'layout.html' %}
+{% extends 'main.html' %}
 
 <!-- <head> -->
 {% block title %}
   <title>{{ movie.title_main }}</title>
 {% endblock title %}
+{% block header %}
+<style>
+  body {
+    background-image: url("{{ movie.poster_large }}");
+    background-size: cover;
+    background-position: 50% 50%;
+    backdrop-filter: blur(30px)
+  }
+  
+  .movie-info{
+    backdrop-filter: brightness(120%);
+    margin-bottom: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+</style>
+{% endblock header %}
+
+
 <!-- </head> -->
 
 <!-- <body> -->
 {% block content %}
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-4">
-        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="img-fluid">
+      <div class="col-md-4 movie-poster">
+        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="img-fluid" style="border: 2px solid black">
         <div class="actions p-2">
           <button class="btn btn-primary" type="button">↻ Refresh</button>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 movie-info">
         <h1>{{ movie.title_main }}</h1>
+        {% if movie.title_original != "" %}
         <p><strong>Original Title:</strong> {{ movie.title_original }}</p>
+        {% endif %}
         <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
         <p><strong>Duration:</strong> {{ movie.runtime }}</p>
         <p><strong>Ratings:</strong> {{ movie.rating_imdb / 10 }}/10, {{ movie.rating_metacritic }}/100, {{ movie.rating_rottentomatoes }}%</p>
@@ -29,7 +50,7 @@
         <p><strong>Genres:</strong> {{ movie.genre }}</p>
         <p><strong>Director:</strong> {{ movie.director }}</p>
         <p><strong>Production:</strong> {{ movie.production }}</p>
-        <p><strong>Movie Website:</strong> <a href="{{ movie.website }}">Official Website</a></p>
+        <p><strong>Links:</strong> <a href="{{ movie.website }}">Official Website</a> | <a href="https://www.imdb.com/title/{{ movie.imdb_id }}/">IMDB</a></p>
       </div>
     </div>
   </div>

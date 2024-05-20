@@ -1,10 +1,11 @@
-<div class="media-library">
-    <div class="movie-card">
-        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="movie-poster">
+<div class="movie-card">
+    <a href="/movie/{{ movie.id }}">
+        <img src="{{ movie.poster_large }}" alt="{{ movie.title_main }} ({{ movie.release_year }})" onerror="this.onerror = null; this.src='static/img/no_poster.jpg'" class="movie-poster">
+        <div class="bottom-band"></div>
         <div class="movie-info">
-            <a href="/movie/{{ movie.id }}"><h2 class="movie-title">{{ movie.title_main }}</h2></a>
+            <h2 class="movie-title">{{ movie.title_main }}</h2>
             <p class="movie-year">{{ movie.release_year }}</p>
             <p class="movie-description">{{ movie.plot }}</p>
         </div>
-    </div>
+    </a>
 </div>
