@@ -5,37 +5,22 @@
   <title>{{ movie.title_main }}</title>
 {% endblock title %}
 {% block header %}
-<style>
-  body {
-    background-image: url("{{ movie.poster_large }}");
-    background-size: cover;
-    background-position: 50% 50%;
-    backdrop-filter: blur(30px)
-  }
-  
-  .movie-info{
-    backdrop-filter: brightness(120%);
-    margin-bottom: 50px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-</style>
-
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/movie_styles.css') }}">
 {% endblock header %}
-
-
 <!-- </head> -->
 
 <!-- <body> -->
 {% block content %}
-  <div class="container mt-5">
+  <div class="background-blur" style="background-image: url('{{ movie.poster_large }}');"></div>
+  <div class="container mt-5" >
     <div class="row">
-      <div class="col-md-4 movie-poster">
-        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="img-fluid" style="border: 2px solid black">
+      <div class="col-md-4">         
+        <img src="{{ movie.poster_large }}" alt="Movie Poster" class="img-fluid movie-poster">
         <div class="actions p-2">
           <button class="btn btn-primary" type="button">↻ Refresh</button>
         </div>
       </div>
+      
       <div class="col-md-8 movie-info">
         <h1>{{ movie.title_main }}</h1>
         {% if movie.title_original != "" %}
@@ -55,5 +40,6 @@
       </div>
     </div>
   </div>
+</main>
 {% endblock content %}
 <!-- </body> -->

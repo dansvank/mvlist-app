@@ -18,7 +18,7 @@ def loadMovies():
 
     rd = []
     for row in result.all():
-      if len(rd) > 1000:  #limit shown results to this number
+      if len(rd) > 26:  #limit shown results to this number
         return rd
       rd.append(row._asdict())
 

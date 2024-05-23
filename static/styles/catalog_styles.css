@@ -102,7 +102,6 @@ body {
 
 
 /* Background effect */
-
 @keyframes move {
     100% {
         transform: translate3d(0, 0, 1px) rotate(360deg);
@@ -582,3 +581,4 @@ body {
     transform-origin: 22vw -4vh;
     box-shadow: -100vmin 0 12.833121776644889vmin currentColor;
 }
+/* End of weird background effect */
